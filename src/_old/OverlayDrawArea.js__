@@ -1,0 +1,115 @@
+import { useMemo, useState, useEffect } from 'react';
+import styled from '@emotion/styled';
+
+const OverlayDrawArea = () => {
+  var canvas;
+  var context;
+
+  const [area, setArea] = useState(0);
+
+  useEffect(() => {
+    canvas = document.getElementById('canvas');
+    console.log('canvas: ', canvas);
+    context = canvas.getContext('2d');
+    console.log('context: ', context);
+  }, []);
+  //var imageObj = new Image();
+
+  //imageObj.onload = function () {
+  //  canvas.attr({
+  //    width: this.width,
+  //    height: this.height,
+  //  });
+  //  context.drawImage(imageObj, 0, 0);
+  //};
+  //imageObj.src = 'https://www.html5canvastutorials.com/demos/assets/darth-vader.jpg';
+
+  var clicks = [];
+
+  const drawPolygon = () => {
+    var length = [];
+    var area = 0;
+    context.fillStyle = 'rgba(100,100,100,0.5)';
+    context.strokeStyle = '#df4b26';
+    context.lineWidth = 1;
+
+    context.beginPath();
+    context.moveTo(clicks[0].x, clicks[0].y);
+    for (var i = 1; i < clicks.length; i++) {
+      context.lineTo(clicks[i].x, clicks[i].y);
+      length.push(
+        Math.sqrt((clicks[i].x - clicks[i - 1].x) ** 2 + (clicks[i].y - clicks[i - 1].y) ** 2)
+      );
+      area += Math.abs(clicks[i].y * clicks[i - 1].x - clicks[i].x * clicks[i - 1].y) / 2;
+    }
+    length.push(
+      Math.sqrt(
+        (clicks[0].x - clicks[clicks.length - 1].x) ** 2 +
+          (clicks[0].y - clicks[clicks.length - 1].y) ** 2
+      )
+    );
+    area +=
+      Math.abs(clicks[0].y * clicks[clicks.length - 1].x - clicks[0].x * clicks[clicks.length - 1].y) /
+      2;
+    console.log('length: ', length, area);
+    //setArea(area);
+    context.closePath();
+    context.fill();
+    context.stroke();
+  };
+
+  const drawPoints = () => {
+    console.log('drawPoints/clicks: ', clicks);
+    context.strokeStyle = '#df4b26';
+    context.lineJoin = 'round';
+    context.lineWidth = 5;
+
+    for (var i = 0; i < clicks.length; i++) {
+      context.beginPath();
+      context.arc(clicks[i].x, clicks[i].y, 3, 0, 2 * Math.PI, false);
+      context.fillStyle = '#ffffff';
+      context.fill();
+      context.lineWidth = 5;
+      context.stroke();
+    }
+  };
+
+  const redraw = () => {
+    console.log('redraw/clicks: ', clicks);
+    canvas.width = canvas.width; // Clears the canvas
+    //context.drawImage(imageObj, 0, 0);
+    drawPolygon();
+    drawPoints();
+  };
+
+  const mouseUp = (e) => {
+    console.log('mouseup/e: ', e);
+    clicks.push({
+      x: e.nativeEvent.offsetX,
+      y: e.nativeEvent.offsetY,
+    });
+    redraw();
+  };
+
+  return (
+    <OverlayDrawAreaBody>
+      <canvas id="canvas" onMouseUp={(e) => mouseUp(e)} width="500" height="500"></canvas>
+      <p>Fläche: {area}</p>
+    </OverlayDrawAreaBody>
+  );
+};
+
+export default OverlayDrawArea;
+
+const OverlayDrawAreaBody = styled.div`
+  width: inherit;
+  height: inherit;
+  position: absolute;
+
+  canvas {
+    width: inherit;
+    height: inherit;
+    cursor: crosshair;
+    display: block;
+  }
+`;

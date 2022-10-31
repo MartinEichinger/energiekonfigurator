@@ -1,13 +1,137 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: "Plus Jakarta Sans", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.map-container {
+  width: 500px;
+  height: 500px;
 }
+
+#root .App {
+  font-family: "Plus Jakarta Sans", sans-serif;
+}
+#root .App h1 {
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 30px;
+  margin-bottom: 0px;
+}
+#root .App h2 {
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 23px;
+  margin-bottom: 0px;
+}
+#root .App h3 {
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 19px;
+}
+#root .App h4 {
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 15px;
+  letter-spacing: 2.4px;
+}
+#root .App p {
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 23px;
+}
+#root .App p.bold {
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 15px;
+}
+#root .App p.small {
+  font-size: 10px;
+  font-weight: 600;
+  text-shadow: 0px 0px 5px white;
+  margin: 0px;
+  line-height: 10px;
+  background-color: rgba(255, 255, 255, 0.5);
+}
+#root .App a {
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 19px;
+}
+#root .App button {
+  font-family: "Plus Jakarta Sans";
+  font-style: normal;
+  font-weight: 700;
+  width: 255px;
+  color: white;
+  border-width: 2px;
+  border-style: solid;
+}
+#root .App button:hover {
+  opacity: 0.5;
+}
+#root .App button:disabled {
+  background-color: white;
+  color: rgb(32, 33, 44);
+  opacity: 0.75;
+}
+#root .App button.large {
+  padding: 15px 18px;
+  border-radius: 15px 15px 0px 15px;
+  font-size: 15px;
+  line-height: 19px;
+  text-align: center;
+}
+#root .App button.smll {
+  padding: 8px 18px;
+  border-radius: 12px 12px 0px 12px;
+  height: 40px;
+  font-size: 13px;
+  line-height: 23px;
+  text-align: center;
+}
+#root .App button.xsmll {
+  padding: 3px 4px;
+  border-radius: 12px 12px 0px 12px;
+  height: 30px;
+  width: 150px;
+  font-size: 13px;
+  line-height: 23px;
+  text-align: center;
+}
+#root .App button.task {
+  width: 280px;
+}
+#root .App input {
+  border-radius: 12px 12px 0px 12px;
+  padding: 8px 16px;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 23px;
+  outline: none;
+  border: 0px;
+}
+#root .App input[type=number] {
+  height: 40px;
+}
+#root .App .dirtyPurple {
+  background-color: rgb(114, 134, 186);
+  border-color: rgb(114, 134, 186) !important;
+}
+#root .App .dirtyGreen {
+  background-color: rgb(114, 186, 151);
+  border-color: rgb(114, 186, 151) !important;
+}
+#root .App .sandyBrown {
+  background-color: rgb(186, 170, 114);
+  border-color: rgb(186, 170, 114) !important;
+}
+#root .App .brightBlack {
+  background-color: rgb(32, 33, 44);
+  border-color: rgb(32, 33, 44) !important;
+}
+#root .App .purpleGrey {
+  background-color: rgb(130, 143, 163);
+  border-color: rgb(130, 143, 163) !important;
+}/*# sourceMappingURL=index.css.map */

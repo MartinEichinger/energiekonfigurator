@@ -1,0 +1,174 @@
+$DirtyPurple: rgba(114, 134, 186, 1);
+$DirtyGreen: rgba(114, 186, 151, 1);
+$SandyBrown: rgba(186, 170, 114, 1);
+$SandyBrown50: hsl(47, 34, 79, 1);
+$BrightBlack: rgba(32, 33, 44, 1);
+$PurpleGrey: rgba(130, 143, 163, 1);
+
+body {
+  margin: 0;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.map-container {
+  width: 500px;
+  height: 500px;
+}
+
+#root .App {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+
+  h1 {
+    // Heading XL
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 30px;
+    margin-bottom: 0px;
+  }
+
+  h2 {
+    // Heading L
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 23px;
+    margin-bottom: 0px;
+  }
+
+  h3 {
+    // Heading M
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 19px;
+  }
+
+  h4 {
+    // Heading S
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 15px;
+    letter-spacing: 2.4px;
+  }
+
+  p {
+    // Body L
+    font-size: 13px;
+    font-weight: 500;
+    line-height: 23px;
+  }
+
+  p.bold {
+    // Body M
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 15px;
+  }
+
+  p.small {
+    font-size: 10px;
+    font-weight: 600;
+    text-shadow: 0px 0px 5px white;
+    margin: 0px;
+    line-height: 10px;
+    background-color: rgba(255, 255, 255, 0.5);
+  }
+
+  a {
+    // Heading M
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 19px;
+  }
+
+  button {
+    font-family: 'Plus Jakarta Sans';
+    font-style: normal;
+    font-weight: 700;
+    width: 255px;
+    color: white;
+    border-width: 2px;
+    border-style: solid;
+
+    &:hover {
+      opacity: 0.5;
+    }
+
+    &:disabled {
+      background-color: white;
+      color: $BrightBlack;
+      opacity: 0.75;
+    }
+
+    &.large {
+      padding: 15px 18px;
+      border-radius: 15px 15px 0px 15px;
+      //border: 0px;
+
+      font-size: 15px;
+      line-height: 19px;
+      text-align: center;
+    }
+
+    &.smll {
+      padding: 8px 18px;
+      border-radius: 12px 12px 0px 12px;
+      height: 40px;
+      //border: 0px;
+
+      font-size: 13px;
+      line-height: 23px;
+      text-align: center;
+    }
+
+    &.xsmll {
+      padding: 3px 4px;
+      border-radius: 12px 12px 0px 12px;
+      height: 30px;
+      width: 150px;
+
+      font-size: 13px;
+      line-height: 23px;
+      text-align: center;
+    }
+
+    &.task {
+      width: 280px;
+    }
+  }
+
+  input {
+    border-radius: 12px 12px 0px 12px;
+    padding: 8px 16px;
+    font-size: 13px;
+    font-weight: 500;
+    line-height: 23px;
+    outline: none;
+    border: 0px;
+
+    &[type='number'] {
+      height: 40px;
+    }
+  }
+
+  .dirtyPurple {
+    background-color: rgba(114, 134, 186, 1);
+    border-color: rgba(114, 134, 186, 1) !important;
+  }
+  .dirtyGreen {
+    background-color: rgba(114, 186, 151, 1);
+    border-color: rgba(114, 186, 151, 1) !important;
+  }
+  .sandyBrown {
+    background-color: rgba(186, 170, 114, 1);
+    border-color: rgba(186, 170, 114, 1) !important;
+  }
+  .brightBlack {
+    background-color: rgba(32, 33, 44, 1);
+    border-color: rgba(32, 33, 44, 1) !important;
+  }
+  .purpleGrey {
+    background-color: rgba(130, 143, 163, 1);
+    border-color: rgba(130, 143, 163, 1) !important;
+  }
+}
