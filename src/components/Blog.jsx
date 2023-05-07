@@ -1,5 +1,4 @@
 import styled from '@emotion/styled';
-import { Link } from 'react-router-dom';
 import HomeHeroSection from './HomeHeroSection';
 import BlogFilter from './BlogFilter';
 import blogHeroSolar from '../images/blog-hero-solar.png';
@@ -40,7 +39,12 @@ export function Blog({ colors }) {
         {blogEntries.map((entry) => {
           return (
             <BlogEntry className="mb-5">
-              <a href={entry.href} target="_blank" className="blog-entry d-flex flex-row">
+              <a
+                href={entry.href}
+                target="_blank"
+                rel="noreferrer"
+                className="blog-entry d-flex flex-row"
+              >
                 <Image style={{ backgroundImage: `url(${entry.image})` }}>
                   <p className="small">{entry.owner}</p>
                 </Image>

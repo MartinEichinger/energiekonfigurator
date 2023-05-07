@@ -1,5 +1,4 @@
 import styled from '@emotion/styled';
-import homeHeroEarth from '../images/home-hero-earth.png';
 
 export default function HomeHeroSection({ className, prop }) {
   return (
