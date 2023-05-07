@@ -3,6 +3,7 @@ import styled from '@emotion/styled';
 import { NoMatch } from './components/NoMatch';
 import { Home } from './components/Home';
 import { Blog } from './components/Blog';
+import { Impressum } from './components/Impressum';
 import Energiekonfigurator from './components/Energiekonfigurator';
 
 import { ReactComponent as BrandLogo } from './images/brand-logo.svg';
@@ -13,6 +14,7 @@ const colors = {
   DirtyPurple: 'rgba(114,134,186,1)',
   DirtyPurple50: 'rgba(114,134,186,0.5)',
   DirtyGreen: 'rgba(114,186,151,1)',
+  DirtyBlue: 'rgba(114,156,186,1)',
   SandyBrown: 'rgba(186,170,114,1)',
   SandyBrown50: 'hsl(47,34,79%,1)',
   BrightBlack: 'rgba(32,33,44,1)',
@@ -24,9 +26,10 @@ export default function App() {
   return (
     <Routes>
       <Route path="/" element={<Layout />}>
-        <Route index element={<Home />} />
+        <Route index element={<Home colors={colors} />} />
         <Route path="energiekonfigurator/*" element={<Energiekonfigurator colors={colors} />} />
-        <Route path="blog" element={<Blog />} />
+        <Route path="blog" element={<Blog colors={colors} />} />
+        <Route path="impressum" element={<Impressum />} />
         <Route path="*" element={<NoMatch />} />
       </Route>
     </Routes>
@@ -41,7 +44,7 @@ function Layout() {
   return (
     <div className="App" colors={colors}>
       <div className="frame d-flex flex-column">
-        <Nav className="nav d-flex flex-row" colors={colors} pointer={pointer}>
+        <Nav className="nav d-flex flex-row flex-nowrap" colors={colors} pointer={pointer}>
           <Link to="/" className="logo d-flex align-items-start">
             <BrandLogo />
             <BrandNameApp />

@@ -4,6 +4,7 @@ import { ReactComponent as ArrowDown } from '../images/icon-chevron-down.svg';
 import { ReactComponent as ArrowUp } from '../images/icon-chevron-up.svg';
 import { ReactComponent as ArrowRight } from '../images/icon-chevron-right.svg';
 import { ReactComponent as ArrowLeft } from '../images/icon-chevron-left.svg';
+import configData from '../config.json';
 
 const MoveTool = ({ className, colors, setDeltaX, setDeltaY }) => {
   return (
@@ -20,25 +21,25 @@ const MoveTool = ({ className, colors, setDeltaX, setDeltaY }) => {
       <div className="move-tool-fg d-flex flex-row flex-wrap ">
         <div
           className="btn-fg d-flex flex-row justify-content-center align-items-center"
-          onClick={() => setDeltaX(-1)}
+          onClick={() => setDeltaX(-configData.module_move_steps)}
         >
           <ArrowLeft />
         </div>
         <div
           className="btn-fg d-flex flex-row justify-content-center align-items-center"
-          onClick={() => setDeltaY(1)}
+          onClick={() => setDeltaY(configData.module_move_steps)}
         >
           <ArrowUp />
         </div>
         <div
           className="btn-fg d-flex flex-row justify-content-center align-items-center"
-          onClick={() => setDeltaY(-1)}
+          onClick={() => setDeltaY(-configData.module_move_steps)}
         >
           <ArrowDown />
         </div>
         <div
           className="btn-fg d-flex flex-row justify-content-center align-items-center"
-          onClick={() => setDeltaX(1)}
+          onClick={() => setDeltaX(configData.module_move_steps)}
         >
           <ArrowRight />
         </div>

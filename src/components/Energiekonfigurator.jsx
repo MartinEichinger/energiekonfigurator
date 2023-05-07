@@ -7,6 +7,10 @@ import Sidebar from './Sidebar';
 //import SolarCalculation from './SolarCalculation';
 import { ModulSelection } from './ModulSelection';
 import { Ergebnisse } from './Ergebnisse';
+import { CurrentProfil } from './CurrentProfil';
+import { HeatProfil } from './HeatProfil';
+import { PowerStorage } from './PowerStorage';
+import { Kosten } from './Kosten';
 
 //import pointer from './images/pointer.png';
 
@@ -14,26 +18,15 @@ export default function Energiekonfigurator({ colors }) {
   const [sidebarCollapse, setSidebarCollapse] = useState(false);
   const [configStatus, setConfigStatus] = useState(0);
   // Map
-  //const [roofType, setRoofType] = useState('-');
   const [maps, setMaps] = useState();
-  const [zoom, setZoom] = useState(5);
-  //const [lat, setLat] = useState(48.13);
-  //const [lng, setLng] = useState(11.58);
   const [plz, setPlz] = useState('');
-  //const [objectType, setObjectType] = useState(0);
-  const [panelArea, setPanelArea] = useState('-');
-  const [roofDirect, setRoofDirect] = useState('-');
-  //const [roofSlope, setRoofSlope] = useState(30);
   const [panelNo, setPanelNo] = useState(40);
   // OverlayGoogleDraw
   const [deltaX, setDeltaX] = useState(0);
   const [deltaY, setDeltaY] = useState(0);
-  const [cornerPointsLatLng, setCornerPointsLatLng] = useState([]);
   const [cornerPoints, setCornerPoints] = useState([]);
   const [middlePoints, setMiddlePoints] = useState([]);
   const [centrePoint, setCentrePoint] = useState();
-  const [sideLen, setSideLen] = useState([]);
-  const [selectedShape, setSelectedShape] = useState();
   const [currPoly, setCurrPoly] = useState();
   //ModulSelection
   const [globalRadiation, setGlobalRadiation] = useState([]);
@@ -68,57 +61,32 @@ export default function Energiekonfigurator({ colors }) {
             />
           }
         >
+          <Route path="modul-auswahl" element={<ModulSelection colors={colors} />} />
           <Route
             index
             element={
               <PVKonfigurator
                 colors={colors}
-                //roofType={roofType}
-                //setRoofType={setRoofType}
                 configStatus={configStatus}
                 setConfigStatus={setConfigStatus}
                 maps={maps}
                 setMaps={setMaps}
-                //zoom={zoom}
-                //setZoom={setZoom}
                 plz={plz}
                 setPlz={setPlz}
-                //objectType={objectType}
-                //setObjectType={setObjectType}
-                //panelArea={panelArea}
-                //setPanelArea={setPanelArea}
-                //roofDirect={roofDirect}
-                //setRoofDirect={setRoofDirect}
-                //roofSlope={roofSlope}
-                //setRoofSlope={setRoofSlope}
-                //panelNo={panelNo}
-                //setPanelNo={setPanelNo}
                 deltaX={deltaX}
                 setDeltaX={setDeltaX}
                 deltaY={deltaY}
                 setDeltaY={setDeltaY}
-                //cornerPointsLatLng={cornerPointsLatLng}
-                //setCornerPointsLatLng={setCornerPointsLatLng}
-                //cornerPoints={cornerPoints}
-                //setCornerPoints={setCornerPoints}
                 middlePoints={middlePoints}
                 setMiddlePoints={setMiddlePoints}
-                //centrePoint={centrePoint}
-                //setCentrePoint={setCentrePoint}
-                //sideLen={sideLen}
-                //setSideLen={setSideLen}
-                //selectedShape={selectedShape}
-                //setSelectedShape={setSelectedShape}
                 currPoly={currPoly}
                 setCurrPoly={setCurrPoly}
-                //setGlobalRadiation={setGlobalRadiation}
-                //setPVYield={setPVYield}
-                //arrYear={arrYear}
-                //solarCalc={solarCalc}
               />
             }
           />
-          <Route path="modul-auswahl" element={<ModulSelection colors={colors} />} />
+          {/* <Route path="stromprofil" element={<CurrentProfil colors={colors} />} /> */}
+          {/* <Route path="waermeverbrauch" element={<HeatProfil colors={colors} />} /> */}
+          {/* <Route path="stromspeicher" element={<PowerStorage colors={colors} />} /> */}
           <Route
             path="ergebnisse"
             element={
@@ -131,6 +99,7 @@ export default function Energiekonfigurator({ colors }) {
               />
             }
           />
+          <Route path="kosten" element={<Kosten colors={colors} />} />
         </Route>
       </Routes>
     </>

@@ -3,6 +3,7 @@ import styled from '@emotion/styled';
 import NavButtons from './NavButtons';
 import Map from './Map';
 import Objects from './Objects';
+import Numberfield from './Numberfield';
 import { useLoadScript } from '@react-google-maps/api';
 import { ReactComponent as TypeIcon } from '../images/icon-type.svg';
 import { ReactComponent as SlopeIcon } from '../images/icon-slope.svg';
@@ -12,6 +13,8 @@ import { ReactComponent as DirectionIcon } from '../images/icon-direction.svg';
 import { ReactComponent as PowerIcon } from '../images/icon-power.svg';
 import { useAppSelector, useAppDispatch } from '../store/hooks';
 import { getWeatherData } from '../store/weatherSlices';
+import { getCurrentProfilData } from '../store/currentProfilSlices';
+import { setPanelNo } from '../store/objectSlices';
 
 const libraries = ['places', 'drawing'];
 
@@ -69,6 +72,7 @@ const PVKonfigurator = ({
       lng: lng,
     };
     dispatch(getWeatherData(formData));
+    dispatch(getCurrentProfilData());
   };
 
   if (debug > 3) console.log('PV Konfigurator: ', configStatus, lat);
@@ -135,7 +139,18 @@ const PVKonfigurator = ({
           </ResultCard>
           <ResultCard className="d-flex flex-row align-items-center" colors={colors}>
             <NoPanelsIcon />
-            <h1>{panelNo}</h1>
+            <NumberfieldCP
+              colors={colors}
+              value={panelNo}
+              onChange={(e) => {
+                console.log(e);
+                e === 'up'
+                  ? dispatch(setPanelNo(panelNo + 1))
+                  : e === 'down'
+                  ? dispatch(setPanelNo(panelNo - 1))
+                  : dispatch(setPanelNo(e));
+              }}
+            />
           </ResultCard>
           <ResultCard className="d-flex flex-row align-items-center" colors={colors}>
             <PowerIcon />
@@ -148,6 +163,20 @@ const PVKonfigurator = ({
 };
 
 export default PVKonfigurator;
+
+const NumberfieldCP = styled(Numberfield)`
+  width: 150px;
+
+  .number-input {
+    input {
+      width: 100px;
+      font-size: 24px !important;
+      font-weight: 700 !important;
+      line-height: 30px !important;
+      color: ${({ colors }) => colors.DirtyPurple} !important;
+    }
+  }
+`;
 
 const PVKonfiguratorMain = styled.div`
   max-width: 1000px;

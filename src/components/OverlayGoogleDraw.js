@@ -350,7 +350,7 @@ const OverlayGoogleDraw = ({
         p[i][j].setOptions({
           visible: true,
           strokeOpacity: 1,
-          fillOpacity: 1,
+          fillOpacity: 0.75,
         });
         p[i][j].setMap(map);
         if (debug > 3) console.log('OGD/addListenersOnPolygon/show: ', p[i][j].strokeOpacity);

@@ -41,6 +41,9 @@ body {
   font-weight: 500;
   line-height: 23px;
 }
+#root .App .text-justify {
+  text-align: justify;
+}
 #root .App p.bold {
   font-size: 12px;
   font-weight: 700;
@@ -115,6 +118,9 @@ body {
 #root .App input[type=number] {
   height: 40px;
 }
+#root .App .text-dirtyPurple {
+  color: rgb(114, 134, 186) !important;
+}
 #root .App .dirtyPurple {
   background-color: rgb(114, 134, 186);
   border-color: rgb(114, 134, 186) !important;
@@ -127,6 +133,10 @@ body {
   background-color: rgb(186, 170, 114);
   border-color: rgb(186, 170, 114) !important;
 }
+#root .App .sandyBrown50 {
+  background-color: hsl(47, 34%, 79%);
+  border-color: hsl(47, 34%, 79%) !important;
+}
 #root .App .brightBlack {
   background-color: rgb(32, 33, 44);
   border-color: rgb(32, 33, 44) !important;
@@ -134,4 +144,7 @@ body {
 #root .App .purpleGrey {
   background-color: rgb(130, 143, 163);
   border-color: rgb(130, 143, 163) !important;
+}
+#root .App .text-purpleGrey {
+  color: rgb(130, 143, 163) !important;
 }/*# sourceMappingURL=index.css.map */

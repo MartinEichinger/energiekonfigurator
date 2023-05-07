@@ -1,0 +1,10 @@
+1) Auswahl Sperrflächen merken
+2) Egal wo mit Zeichnen begonnen wird
+3) Formatierung Menü anpassen
+4) Toast wenn Berechnung fehlschlägt
+5) Toast dass Berechnungen nicht aktuell, wenn Solarpanel geändert wird
+6) Wechsel von Ergebnisse --> PV Konfig, Linien werden nicht richtig gezeichnet
+7) Spinner wenn Daten geladen werden
+8) Kompass Icon korrigieren
+9) Farbe gezeichnete Module auffälliger
+10) Informationen bei Icons ein/ausblenden

@@ -7,7 +7,8 @@ const debug = 1;
 const initialState = {
   loadingPVModuleData: false,
   moduleName: 'Standardmodul',
-  modulePower: 375,
+  modulePower: 375, // W/Module
+  costPVModule: 1500, // €/kWh installed
   moduleHeight: 1.65,
   moduleWidth: 1.0,
 };

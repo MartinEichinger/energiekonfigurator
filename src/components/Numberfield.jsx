@@ -3,7 +3,7 @@ import styled from '@emotion/styled';
 import { ReactComponent as ArrowDown } from '../images/icon-chevron-down.svg';
 import { ReactComponent as ArrowUp } from '../images/icon-chevron-up.svg';
 
-const Numberfield = ({ className, colors, title, placeholder, onChange, value, min, max }) => {
+const Numberfield = ({ className, colors, title, placeholder, onChange, value, min, max, unit }) => {
   return (
     <NumberfieldMain colors={colors} className={className}>
       {title !== undefined && <label htmlFor="textfield">{title}</label>}
@@ -19,18 +19,21 @@ const Numberfield = ({ className, colors, title, placeholder, onChange, value, m
           value={value}
           onChange={(e) => onChange(parseInt(e.target.value))}
         />
-        <div className="arrows d-flex flex-column">
-          <div
-            className="arrow-bg up d-flex flex-column justify-content-center"
-            onClick={() => value !== max && onChange('up')}
-          >
-            <ArrowUp />
-          </div>
-          <div
-            className="arrow-bg down d-flex flex-column justify-content-center"
-            onClick={() => value !== min && onChange('down')}
-          >
-            <ArrowDown />
+        <div className="content d-flex flex-row align-items-center">
+          {unit && <p>kWh</p>}
+          <div className="arrows d-flex flex-column">
+            <div
+              className="arrow-bg up d-flex flex-column justify-content-center"
+              onClick={() => value !== max && onChange('up')}
+            >
+              <ArrowUp />
+            </div>
+            <div
+              className="arrow-bg down d-flex flex-column justify-content-center"
+              onClick={() => value !== min && onChange('down')}
+            >
+              <ArrowDown />
+            </div>
           </div>
         </div>
       </div>
@@ -58,28 +61,36 @@ const NumberfieldMain = styled.div`
     font-size: 12px;
     font-weight: 700;
     line-height: 15px;
-    color: ${({ colors }) => colors.PurpleGrey};
+    color: ${({ colors }) => colors.SandyBrown};
     margin-bottom: 8px;
   }
 
   .number-input {
     position: relative;
 
-    .arrows {
+    .content {
       position: absolute;
       height: 100%;
 
-      .arrow-bg {
-        cursor: pointer;
-        height: 50%;
-        padding: 0px 15px;
+      p {
+        margin-bottom: 0px;
+      }
 
-        &.up {
-          border-radius: 0px 12px 0px 0px;
-        }
+      .arrows {
+        height: 100%;
 
-        &:hover {
-          background-color: ${({ colors }) => colors.LightGrey};
+        .arrow-bg {
+          cursor: pointer;
+          height: 50%;
+          padding: 0px 15px;
+
+          &.up {
+            border-radius: 0px 12px 0px 0px;
+          }
+
+          &:hover {
+            background-color: ${({ colors }) => colors.SandyBrown};
+          }
         }
       }
     }
@@ -95,11 +106,11 @@ const NumberfieldMain = styled.div`
 
       cursor: auto;
 
-      border: 1px solid ${({ colors }) => colors.PurpleGrey};
+      border: 1px solid ${({ colors }) => colors.SandyBrown} !important;
 
       &:focus-visible {
         outline: none;
-        //border: 1px solid ${({ colors }) => colors.PurpleGrey};
+        //border: 1px solid ${({ colors }) => colors.SandyBrown};
       }
     }
   }

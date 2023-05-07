@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { getData } from './api';
-//import { AppThunk } from './store';
+import getDayOfYear from '../util/util';
 
 const debug = 1;
 const baseURL = process.env.REACT_APP_TMDB_BASIC_PATH;
@@ -51,8 +51,8 @@ export const slice = createSlice({
 
       for (let i = 0; i < addObj.length; i++) {
         __globTimeHour.push(addObj[i]['time']);
-        __globIrradHour.push(addObj[i]['P']);
-        __pvYieldHour.push(addObj[i]['G(i)']);
+        __globIrradHour.push(addObj[i]['G(i)']);
+        __pvYieldHour.push(addObj[i]['P'] / 1000);
         __pvYieldYear += addObj[i]['P'] / 1000;
         __globIrradYear += addObj[i]['G(i)'] / 1000;
         //console.log(__pvYieldYear, __globIrradYear, typeof addObj[i]['P']);
@@ -78,8 +78,10 @@ export const slice = createSlice({
         'Nov',
         'Dez',
       ];
+      var __globTimeDay = Array.from({ length: 365 }, (_, i) => i + 1);
       var __globIrradMonth = [];
-      var __pvYieldMonth = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+      var __pvYieldMonth = Array(12).fill(0);
+      var __pvYieldDay = Array(365).fill(0);
 
       for (let i = 0; i < addObj.length; i++) {
         var day_string =
@@ -94,13 +96,21 @@ export const slice = createSlice({
           addObj[i]['time'].slice(11);
         var day = new Date(day_string);
         var month = day.getMonth();
+        var dayOfYear = getDayOfYear(day);
+        //console.log('weatherDataReceived/day/month/dayOfYear: ', day, month, dayOfYear);
         __pvYieldMonth[month] = __pvYieldMonth[month] + addObj[i]['P'] / 1000;
+        __pvYieldDay[dayOfYear - 1] = __pvYieldDay[dayOfYear - 1] + addObj[i]['P'] / 1000;
       }
 
+      // monthly data
       state.globTimeMonth = __globTimeMonth;
       state.globIrradMonth = __globIrradMonth;
       state.pvYieldMonth = __pvYieldMonth;
+      // daily data
+      state.pvYieldDay = __pvYieldDay;
+      state.globTimeDay = __globTimeDay;
 
+      // loading finished
       state.loadingWeatherData = false;
     },
 

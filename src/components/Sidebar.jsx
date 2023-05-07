@@ -19,21 +19,46 @@ const Sidebar = ({ className, colors, sidebarCollapse, setSidebarCollapse }) => 
       {!sidebarCollapse && (
         <div className={'upper d-flex flex-column'}>
           <h3 className="sidebar-heading">ALL BOARDS </h3>
-          <NavLink to="/energiekonfigurator" className={'d-flex flex-row align-items-center'} end>
-            <SunIcon />
-            <h3>PV Konfigurator</h3>
-          </NavLink>
           <NavLink
             to="/energiekonfigurator/modul-auswahl"
             className={'d-flex flex-row align-items-center'}
           >
             <SunIcon />
-            <h3>Solarmodul Auswahl</h3>
+            <h3>Solarmodule</h3>
           </NavLink>
+          <NavLink to="/energiekonfigurator" className={'d-flex flex-row align-items-center'} end>
+            <SunIcon />
+            <h3>PV Anlage</h3>
+          </NavLink>
+          {/* <NavLink
+            to="/energiekonfigurator/stromprofil"
+            className={'d-flex flex-row align-items-center'}
+          >
+            <SunIcon />
+            <h3>Stromverbrauch</h3>
+          </NavLink> */}
+          {/* <NavLink
+            to="/energiekonfigurator/waermeverbrauch"
+            className={'d-flex flex-row align-items-center'}
+          >
+            <SunIcon />
+            <h3>Wärmeverbrauch</h3>
+          </NavLink> */}
+          {/* <NavLink
+            to="/energiekonfigurator/stromspeicher"
+            className={'d-flex flex-row align-items-center'}
+          >
+            <SunIcon />
+            <h3>Stromspeicher</h3>
+          </NavLink> */}
           <NavLink to="/energiekonfigurator/ergebnisse" className={'d-flex flex-row align-items-center'}>
             <SunIcon />
             <h3>Ergebnisse</h3>
           </NavLink>
+          {/* <NavLink to="/energiekonfigurator/kosten" className={'d-flex flex-row align-items-center'}>
+            <SunIcon />
+            <h3>Kosten</h3>
+          </NavLink> */}
         </div>
       )}
 
