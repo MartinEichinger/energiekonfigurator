@@ -1,6 +1,0 @@
-{
-  "editor.defaultFormatter": "esbenp.prettier-vscode",
-  "editor.formatOnSave": true,
-  "git.ignoreLimitWarning": true,
-  "eslint.nodePath": "C:\\Program Files\\nodejs"
-}
